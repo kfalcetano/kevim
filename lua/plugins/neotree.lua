@@ -7,8 +7,7 @@ return {
       "nvim-tree/nvim-web-devicons",
       "MunifTanjim/nui.nvim",
     },
-    config = function()
-      require("neo-tree").setup({
+    opts = {
         window = {
           width = 30,
         },
@@ -37,12 +36,6 @@ return {
             }
           }
         }
-      })
-      
-      -- Keymaps
-      vim.keymap.set('n', '<leader>e', '<cmd>Neotree toggle filesystem left<cr>', { desc = 'File Explorer' })
-      -- VS Code style Git tab!
-      vim.keymap.set('n', '<leader>gs', '<cmd>Neotree toggle git_status left<cr>', { desc = 'Git Status' })
-    end
+      }
   },
 }
