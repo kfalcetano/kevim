@@ -11,4 +11,4 @@ vim.keymap.set('n', '<leader>gs', '<cmd>Neotree toggle git_status left<cr>', { d
 
 require('config.lazy')
 
-vim.cmd([[colorscheme tokyonight]])
+vim.cmd.colorscheme('tokyonight')
