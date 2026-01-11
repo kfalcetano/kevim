@@ -1,11 +1,11 @@
 return {
   -- LSP Configuration
-  "neovim/nvim-lspconfig",
+  'neovim/nvim-lspconfig',
   -- Ruff Language Server
-  "astral-sh/ruff-lsp",
+  'astral-sh/ruff-lsp',
   -- Optional: Mason for easy LSP installation management
-  "williamboman/mason.nvim",
-  "williamboman/mason-lspconfig.nvim",
+  'williamboman/mason.nvim',
+  'williamboman/mason-lspconfig.nvim',
 
   opts = {
     servers = {

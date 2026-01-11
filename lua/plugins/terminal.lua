@@ -1,9 +1,9 @@
 return {
   {
     'akinsho/toggleterm.nvim',
-    version = "*",
+    version = '*',
     config = function()
-      require("toggleterm").setup({
+      require('toggleterm').setup({
         -- size can be a number or function which is passed the current terminal
         size = 15,
         -- The keymap used to toggle the terminal
@@ -21,7 +21,7 @@ return {
 
       -- This function makes it easier to navigate out of terminal mode
       function _G.set_terminal_keymaps()
-        local opts = {buffer = 0}
+        local opts = { buffer = 0 }
         vim.keymap.set('t', '<esc>', [[<C-\><C-n>]], opts)
         vim.keymap.set('t', 'jk', [[<C-\><C-n>]], opts)
         -- Normal window navigation works from the terminal too
@@ -33,6 +33,6 @@ return {
 
       -- if you only want these mappings for toggle term use termopen
       vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
-    end
-  }
+    end,
+  },
 }

@@ -1,13 +1,13 @@
 return {
   {
     'akinsho/bufferline.nvim',
-    version = "*",
+    version = '*',
     dependencies = 'nvim-tree/nvim-web-devicons',
     config = function()
-      require("bufferline").setup({
+      require('bufferline').setup({
         options = {
-          mode = "buffers", -- "tabs" for actual vim tabs, "buffers" for VS Code style tabs
-          separator_style = "thin",
+          mode = 'buffers', -- "tabs" for actual vim tabs, "buffers" for VS Code style tabs
+          separator_style = 'thin',
           always_show_bufferline = true,
           show_buffer_close_icons = true,
           show_close_icon = true,
@@ -21,4 +21,3 @@ return {
     end,
   },
 }
-
