@@ -10,6 +10,7 @@ return {
         changedelete = { text = '~' },
         untracked = { text = '┆' },
       },
+      current_line_blame = true,
       -- Keymaps to jump between changes like VS Code
       on_attach = function(bufnr)
         local gs = package.loaded.gitsigns
