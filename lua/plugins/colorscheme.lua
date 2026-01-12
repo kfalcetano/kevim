@@ -5,6 +5,11 @@ return {
     priority = 1000,
     opts = {
       style = 'night',
+      styles = {
+        comments = { italic = false },
+        keywords = { italic = false },
+        NeoTreeRootName = { italic = false },
+      },
     },
   },
 }
