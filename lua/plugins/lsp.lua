@@ -1,18 +1,13 @@
 return {
-  -- LSP Configuration
-  'neovim/nvim-lspconfig',
-  -- Ruff Language Server
-  'astral-sh/ruff-lsp',
-  -- Optional: Mason for easy LSP installation management
   'williamboman/mason.nvim',
-  'williamboman/mason-lspconfig.nvim',
-
-  opts = {
-    servers = {
-      ruff = {
-        -- Configuration options can go here (e.g., for settings, extra arguments)
-        -- init_options = { settings = { ... } }
-      },
-    },
+  dependencies = {
+    'williamboman/mason-lspconfig.nvim',
+    'neovim/nvim-lspconfig',
   },
+  config = function()
+    require('mason').setup()
+    require('mason-lspconfig').setup({
+      ensure_installed = { 'lua_ls' },
+    })
+  end,
 }
