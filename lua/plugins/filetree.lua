@@ -18,6 +18,17 @@ return {
       window = {
         width = 30,
       },
+      open_on_setup = false,
+      ignore_ft_on_setup = {
+        'startify',
+        'dashboard',
+        'alpha',
+        'Outline',
+        'spectre_panel',
+        'toggleterm',
+        'qf',
+        'TelescopePrompt',
+      },
       hijack_netrw_behavior = 'open_default',
       filesystem = {
         use_libuv_file_watcher = true,

@@ -1,8 +1,14 @@
 return {
-  'akinsho/bufferline.nvim',
-  event = 'BufAdd',
-  keys = {
-    { '<Leader>w', ':bd<CR>', desc = 'Close current buffer' },
+  {
+    'akinsho/bufferline.nvim',
+    event = 'BufAdd',
+    opts = {},
+    keys = {
+      { '<Tab>', ':BufferLineCycleNext<CR>', desc = 'Go to next buffer' },
+      { '<S-Tab>', ':BufferLineCyclePrev<CR>', desc = 'Go to next buffer' },
+    },
   },
-  opts = {},
+  {
+    'nvim-mini/mini.bufremove',
+  },
 }
