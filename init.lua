@@ -10,6 +10,17 @@ vim.cmd([[
   autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * if mode() != 'c' | checktime | endif
 ]])
 
+vim.api.nvim_create_autocmd('TextYankPost', {
+  desc = 'Highlight when yanking (copying) text',
+  group = vim.api.nvim_create_augroup('highlight-yank', { clear = true }),
+  callback = function()
+    vim.highlight.on_yank({
+      timeout = 300, -- Duration in milliseconds
+      higroup = 'IncSearch', -- Highlight group to use
+    })
+  end,
+})
+
 vim.g.mapleader = ' '
 vim.g.maplocalleader = '\\'
 vim.o.laststatus = 3
