@@ -12,7 +12,6 @@ return {
 |    |  \\  ___/ \     /  |  ||  Y Y  \ 
 |____|__ \\___  > \___/   |__||__|_|  / 
         \/    \/                    \/  
-                                        
     ]]
     dashboard.section.header.val = vim.split(logo, '\n')
     -- stylua: ignore

@@ -4,6 +4,12 @@ vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
 vim.opt.foldenable = false
 
+-- Sensitive buffer reload so external changes are picked up quickly
+vim.opt.autoread = true
+vim.cmd([[
+  autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * if mode() != 'c' | checktime | endif
+]])
+
 vim.g.mapleader = ' '
 vim.g.maplocalleader = '\\'
 vim.o.laststatus = 3
