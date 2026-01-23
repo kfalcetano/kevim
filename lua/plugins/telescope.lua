@@ -9,5 +9,12 @@ return {
       { '<leader>fb', '<cmd>Telescope buffers<cr>', { desc = 'Telescope buffers' } },
       { '<leader>fh', '<cmd>Telescope help_tags<cr>', { desc = 'Telescope help tags' } },
     },
+    opts = {
+      pickers = {
+        find_files = {
+          hidden = true,
+        },
+      },
+    },
   },
 }
