@@ -10,5 +10,11 @@ return {
   },
   {
     'nvim-mini/mini.bufremove',
+    config = function()
+      -- Close the current buffer without messing with the layout
+      vim.keymap.set('n', '<leader>bd', function()
+        require('mini.bufremove').delete(0) -- 0 refers to the current buffer
+      end, { desc = 'Delete current buffer (mini)' })
+    end,
   },
 }
