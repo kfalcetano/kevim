@@ -19,6 +19,9 @@ vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 
+-- Custom keybinds for default neovim actions
+vim.keymap.set('n', '<leader>n', ':noh<cr>', { desc = 'Clear search hightlight' })
+
 -- Sensitive buffer reload so external changes are picked up quickly
 vim.opt.autoread = true
 vim.cmd([[
