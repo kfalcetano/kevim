@@ -56,8 +56,10 @@ return {
       vim.api.nvim_create_autocmd('LspAttach', {
         callback = function(args)
           local client = vim.lsp.get_client_by_id(args.data.client_id)
-          -- Define your keymaps or autocmds here
+
+          -- Go to definition in new buffer
           vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { buffer = args.buf })
+
           -- Open definition in a horizontal split
           vim.keymap.set('n', 'gh', function()
             vim.cmd('split')
@@ -69,6 +71,16 @@ return {
             vim.cmd('vsplit')
             vim.lsp.buf.definition()
           end, { buffer = args.buf, desc = 'LSP definition in vertical split' })
+
+          -- Default inlay hints to on if available
+          if client.server_capabilities.inlayHintProvider then
+            vim.lsp.inlay_hint.enable(true, { bufnr = args.buf })
+          end
+
+          -- Toggle inlay hints keybind
+          vim.keymap.set('n', '<leader>i', function()
+            vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+          end, { desc = 'Toggle inlay hints' })
         end,
       })
     end,
