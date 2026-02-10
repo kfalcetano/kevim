@@ -24,7 +24,6 @@ vim.opt.cursorline = true
 
 -- Custom keybinds for default neovim actions
 vim.keymap.set('n', '<leader>n', ':noh<cr>', { desc = 'Clear search hightlight' })
-vim.keymap.set('n', '<leader>k', vim.diagnostic.open_float, { desc = 'Open diagnostic details in floating window' })
 
 -- Sensitive buffer reload so external changes are picked up quickly
 vim.opt.autoread = true
