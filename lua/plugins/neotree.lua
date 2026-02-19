@@ -24,7 +24,6 @@ return {
       'alpha',
       'Outline',
       'spectre_panel',
-      'toggleterm',
       'qf',
       'TelescopePrompt',
     },
