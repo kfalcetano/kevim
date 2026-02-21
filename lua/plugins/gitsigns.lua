@@ -1,27 +1,21 @@
 return {
-  {
-    'lewis6991/gitsigns.nvim',
-    opts = {
-      signs = {
-        add = { text = '┃' },
-        change = { text = '┃' },
-        delete = { text = '_' },
-        topdelete = { text = '‾' },
-        changedelete = { text = '~' },
-        untracked = { text = '┆' },
-      },
-      current_line_blame = true,
-      -- Keymaps to jump between changes like VS Code
-      on_attach = function(bufnr)
-        local gs = package.loaded.gitsigns
-        vim.keymap.set('n', ']c', function()
-          gs.nav_hunk('next')
-        end, { desc = 'Next Change' })
-        vim.keymap.set('n', '[c', function()
-          gs.nav_hunk('prev')
-        end, { desc = 'Prev Change' })
-        vim.keymap.set('n', '<leader>gp', gs.preview_hunk, { desc = 'Preview Change' })
-      end,
+  'lewis6991/gitsigns.nvim',
+  event = 'BufReadPre',
+  opts = {
+    signs = {
+      add = { text = '┃' },
+      change = { text = '┃' },
+      delete = { text = '_' },
+      topdelete = { text = '‾' },
+      changedelete = { text = '~' },
+      untracked = { text = '┆' },
     },
+    current_line_blame = true,
+  },
+  keys = {
+    { ']c', ':Gitsigns nav_hunk next<cr>', desc = 'Next git change' },
+    { '[c', ':Gitsigns nav_hunk prev<cr>', desc = 'Previous git change' },
+    { '<leader>gp', ':Gitsigns preview_hunk<cr>', desc = 'Preview git change' },
+    { '<leader>gr', ':Gitsigns reset_hunk<cr>', desc = 'Reset git change / range' },
   },
 }
