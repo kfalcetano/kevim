@@ -1,3 +1,4 @@
+local js_formatters = { 'biome', 'prettier', stop_after_first = true }
 return {
   'stevearc/conform.nvim',
   event = 'BufWritePre',
@@ -5,18 +6,18 @@ return {
     formatters_by_ft = {
       lua = { 'stylua' },
       python = {
-        "ruff_organize_imports",
-        "ruff_fix",
-        "ruff_format",
+        'ruff_organize_imports',
+        'ruff_fix',
+        'ruff_format',
       },
-      json = { 'prettier' },
-      javascript = { 'prettier' },
-      typescript = { 'prettier' },
-      typescriptreact = { 'prettier' },
+      json = js_formatters,
+      javascript = js_formatters,
+      typescript = js_formatters,
+      typescriptreact = js_formatters,
     },
     format_on_save = {
       timeout_ms = 500,
-      lsp_format = "fallback",
+      lsp_format = 'fallback',
     },
   },
 }
