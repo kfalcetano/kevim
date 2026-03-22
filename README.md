@@ -1,4 +1,5 @@
 ![Kevim logo](./dashlogo.png)
+
 This is my personal neovim config. It uses lazy.nvim to manage plugins.
 
 ## Requirements
