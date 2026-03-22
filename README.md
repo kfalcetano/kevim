@@ -1,12 +1,4 @@
-```
- ____  __.     ____   ____.__           
-|    |/ _| ____\   \ /   /|__|  _____   
-|      < _/ __ \\   Y   / |  | /     \  
-|    |  \\  ___/ \     /  |  ||  Y Y  \ 
-|____|__ \\___  > \___/   |__||__|_|  / 
-        \/    \/                    \/  
-```
----
+![Kevim logo](./dashlogo.png)
 This is my personal neovim config. It uses lazy.nvim to manage plugins.
 
 ## Requirements
