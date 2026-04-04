@@ -3,6 +3,14 @@ return {
     'nvim-telescope/telescope.nvim',
     lazy = false,
     dependencies = { 'nvim-lua/plenary.nvim' },
+    opts = {
+      pickers = {
+        find_files = {
+          hidden = true,
+          file_ignore_patterns = { '%.git/' },
+        },
+      },
+    },
     keys = {
       { '<leader>fk', '<cmd>Telescope keymaps<cr>', desc = 'Telescope find keymaps' },
       { '<leader>ff', '<cmd>Telescope find_files<cr>', desc = 'Telescope find files' },
