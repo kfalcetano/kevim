@@ -23,7 +23,19 @@ vim.opt.expandtab = true
 vim.opt.cursorline = true
 
 -- Custom keybinds for default neovim actions
-vim.keymap.set('n', '<leader>n', ':noh<cr>', { desc = 'Clear search hightlight' })
+vim.keymap.set('n', '<leader>n', ':noh<cr>', { desc = 'Clear search highlight' })
+vim.keymap.set(
+  'n',
+  '<leader>cap',
+  ':let @+ = expand("%:p")<cr>',
+  { desc = 'Copy absolute path of the current buffer to clipboard' }
+)
+vim.keymap.set(
+  'n',
+  '<leader>crp',
+  ':let @+ = expand("%:~:.")<cr>',
+  { desc = 'Copy relative path of the current buffer to clipboard' }
+)
 
 -- Sensitive buffer reload so external changes are picked up quickly
 vim.opt.autoread = true
