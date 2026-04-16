@@ -57,3 +57,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 require('config.lazy')
 
 vim.cmd('colorscheme carbonfox')
+
+-- Make diffview less ugly
+vim.opt.fillchars = vim.opt.fillchars + 'diff:╱'
+vim.api.nvim_set_hl(0, 'DiffDelete', { fg = '#444444' })
