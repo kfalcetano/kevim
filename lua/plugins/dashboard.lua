@@ -1,3 +1,9 @@
+local content_height = 25 -- Estimated height of header + buttons + footer
+local max_top_padding = 12
+local function compute_alpha_vertical_position()
+  return math.min(math.max(math.floor((vim.fn.winheight(1) - content_height) / 2), 0), max_top_padding)
+end
+
 return {
   'goolord/alpha-nvim',
   event = 'VimEnter',
@@ -14,15 +20,14 @@ return {
         \/    \/                    \/  
     ]]
     dashboard.section.header.val = vim.split(logo, '\n')
-    -- stylua: ignore
     dashboard.section.buttons.val = {
-      dashboard.button("f", " " .. " Find file",       "<cmd>Telescope find_files<cr>"),
-      dashboard.button("n", " " .. " New file",        [[<cmd> ene <BAR> startinsert <cr>]]),
-      dashboard.button("g", " " .. " Find text",       "<cmd>Telescope live_grep<cr>"),
-      dashboard.button("s", " " .. " Restore Session", [[<cmd> lua require("persistence").load() <cr>]]),
-      dashboard.button("l", "󰒲 " .. " Lazy", "<cmd> Lazy <cr>"),
-      dashboard.button("c", " " .. " Close Dashboard", "<cmd> Alpha <cr>"),
-      dashboard.button("q", " " .. " Quit",            "<cmd> qa <cr>"),
+      dashboard.button('f', ' ' .. ' Find file', '<cmd>Telescope find_files<cr>'),
+      dashboard.button('n', ' ' .. ' New file', [[<cmd> ene <BAR> startinsert <cr>]]),
+      dashboard.button('g', ' ' .. ' Find text', '<cmd>Telescope live_grep<cr>'),
+      dashboard.button('s', ' ' .. ' Restore Session', [[<cmd> lua require("persistence").load() <cr>]]),
+      dashboard.button('l', '󰒲 ' .. ' Lazy', '<cmd> Lazy <cr>'),
+      dashboard.button('c', ' ' .. ' Close Dashboard', '<cmd> Alpha <cr>'),
+      dashboard.button('q', ' ' .. ' Quit', '<cmd> qa <cr>'),
     }
     for _, button in ipairs(dashboard.section.buttons.val) do
       button.opts.hl = 'AlphaButtons'
@@ -31,11 +36,11 @@ return {
     dashboard.section.header.opts.hl = 'AlphaHeader'
     dashboard.section.buttons.opts.hl = 'AlphaButtons'
     dashboard.section.footer.opts.hl = 'AlphaFooter'
-    dashboard.opts.layout[1].val = 8
+    dashboard.opts.layout[1].val = compute_alpha_vertical_position()
     return dashboard
   end,
   config = function(_, dashboard)
-    -- close Lazy and re-open when the dashboard is ready
+    -- Close Lazy and re-open when the dashboard is ready
     if vim.o.filetype == 'lazy' then
       vim.cmd.close()
       vim.api.nvim_create_autocmd('User', {
@@ -49,6 +54,7 @@ return {
 
     require('alpha').setup(dashboard.opts)
 
+    -- Calculate startup time from lazy.nvim
     vim.api.nvim_create_autocmd('User', {
       once = true,
       pattern = 'LazyVimStarted',
@@ -63,6 +69,13 @@ return {
           .. ms
           .. 'ms'
         pcall(vim.cmd.AlphaRedraw)
+      end,
+    })
+
+    -- Reposition the dashboard contents vertically when the window is resized
+    vim.api.nvim_create_autocmd('VimResized', {
+      callback = function()
+        dashboard.opts.layout[1].val = compute_alpha_vertical_position()
       end,
     })
   end,
