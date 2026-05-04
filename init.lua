@@ -36,6 +36,8 @@ vim.keymap.set(
   ':let @+ = expand("%:~:.")<cr>',
   { desc = 'Copy relative path of the current buffer to clipboard' }
 )
+vim.keymap.set('n', '<leader>qo', ':copen<cr>', { desc = 'Open the QuickFix window' })
+vim.keymap.set('n', '<leader>qc', ':cclose<cr>', { desc = 'Close the QuickFix window' })
 
 -- Sensitive buffer reload so external changes are picked up quickly
 vim.opt.autoread = true
