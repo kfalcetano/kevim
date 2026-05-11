@@ -21,9 +21,10 @@ return {
     ]]
     dashboard.section.header.val = vim.split(logo, '\n')
     dashboard.section.buttons.val = {
-      dashboard.button('f', ' ' .. ' Find file', '<cmd>Telescope find_files<cr>'),
+      dashboard.button('f', ' ' .. ' Find file', ':lua Snacks.dashboard.pick("files")<cr>'),
       dashboard.button('n', ' ' .. ' New file', [[<cmd> ene <BAR> startinsert <cr>]]),
-      dashboard.button('g', ' ' .. ' Find text', '<cmd>Telescope live_grep<cr>'),
+      dashboard.button('g', ' ' .. ' Find text', ':lua Snacks.dashboard.pick("live_grep")<cr>'),
+      dashboard.button('r', ' ' .. ' Recent Files', ':lua Snacks.dashboard.pick("oldfiles")<cr>'),
       dashboard.button('s', ' ' .. ' Restore Session', [[<cmd> lua require("persistence").load() <cr>]]),
       dashboard.button('l', '󰒲 ' .. ' Lazy', '<cmd> Lazy <cr>'),
       dashboard.button('c', ' ' .. ' Close Dashboard', '<cmd> Alpha <cr>'),
