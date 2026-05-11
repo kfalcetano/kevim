@@ -19,16 +19,6 @@ return {
       },
     },
     config = function(_, opts)
-      vim.lsp.config('ty', {
-        settings = {
-          ty = {
-            -- ty language server settings go here, if any
-          },
-        },
-      })
-
-      vim.lsp.enable('ty')
-
       require('mason').setup()
 
       require('mason-lspconfig').setup({
