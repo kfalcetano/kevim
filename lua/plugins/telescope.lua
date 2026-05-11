@@ -2,7 +2,7 @@ return {
   {
     'nvim-telescope/telescope.nvim',
     lazy = false,
-    dependencies = { 'nvim-lua/plenary.nvim' },
+    dependencies = { 'nvim-lua/plenary.nvim', 'nvim-telescope/telescope-ui-select.nvim' },
     opts = {
       pickers = {
         find_files = {
@@ -24,6 +24,24 @@ return {
         '<cmd>Telescope lsp_document_symbols symbols=function,method<cr>',
         desc = 'Telescope find document functions and methods',
       },
+      { '<leader>ft', '<cmd>Telescope builtin<cr>', desc = 'Telescope find telescope commands' },
+      { '<leader>fi', '<cmd>Telescope git_branches<cr>', desc = 'Telescope find git branches' },
+      { '<leader>fr', '<cmd>Telescope lsp_references<cr>', desc = 'Telescope find symbol references' },
+      { '<leader>fq', '<cmd>Telescope quickfix<cr>', desc = 'Telescope find quickfix items' },
     },
+    config = function()
+      local telescope = require('telescope')
+      telescope.setup({
+        extensions = {
+          ['ui-select'] = {
+            require('telescope.themes').get_dropdown({
+              -- optional options
+            }),
+          },
+        },
+      })
+      -- You MUST load the extension after setup
+      telescope.load_extension('ui-select')
+    end,
   },
 }
