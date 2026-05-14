@@ -1,6 +1,7 @@
 return {
   'sindrets/diffview.nvim',
   cmd = { 'DiffviewOpen', 'DiffviewClose', 'DiffviewToggleFiles', 'DiffviewFocusFiles' },
+  opts = { view = { merge_tool = { layout = 'diff3_mixed' } } },
   keys = {
     { '<leader>do', ':DiffviewOpen<cr>', desc = 'Open DiffView' },
     { '<leader>dc', ':DiffviewClose<cr>', desc = 'Close DiffView' },
