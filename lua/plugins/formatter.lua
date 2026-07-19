@@ -1,4 +1,4 @@
-local js_formatters = { 'biome', 'prettier', stop_after_first = true }
+local js_formatters = { 'biome', 'biome-organize-imports' }
 return {
   'stevearc/conform.nvim',
   event = 'BufWritePre',
