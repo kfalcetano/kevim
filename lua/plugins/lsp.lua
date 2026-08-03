@@ -22,7 +22,7 @@ return {
       require('mason').setup()
 
       require('mason-lspconfig').setup({
-        ensure_installed = { 'lua_ls', 'typos_lsp' },
+        ensure_installed = { 'lua_ls', 'typos_lsp', 'ty', 'bashls' },
       })
 
       vim.diagnostic.config({
