@@ -1,8 +1,9 @@
 -- Add languages from treesitter here
-local treesitter_langs = { 'python', 'lua', 'typescript', 'javascript', 'tsx', 'jsx', 'markdown', 'markdown_inline' }
+local treesitter_langs =
+  { 'python', 'lua', 'typescript', 'javascript', 'tsx', 'jsx', 'markdown', 'markdown_inline', 'css' }
 
 -- Add filetypes for which to automatically enable treesitter
-local filetypes = { 'python', 'lua', 'typescript', 'javascript', 'typescriptreact', 'markdown' }
+local filetypes = { 'python', 'lua', 'typescript', 'javascript', 'typescriptreact', 'markdown', 'css' }
 
 return {
   'nvim-treesitter/nvim-treesitter',
