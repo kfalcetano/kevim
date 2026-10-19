@@ -15,6 +15,7 @@ return {
       typescript = js_formatters,
       typescriptreact = js_formatters,
       html = { 'biome' },
+      rust = { 'rustfmt', lsp_format = 'fallback' },
     },
     format_on_save = {
       timeout_ms = 500,
