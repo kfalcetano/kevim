@@ -2,7 +2,6 @@ return {
   {
     'williamboman/mason.nvim',
     dependencies = {
-      'williamboman/mason-lspconfig.nvim',
       'neovim/nvim-lspconfig',
     },
     opts = {
@@ -70,6 +69,35 @@ return {
           end, { desc = 'Toggle inlay hints' })
         end,
       })
+    end,
+  },
+  {
+    'williamboman/mason-lspconfig.nvim',
+    dependencies = { 'williamboman/mason.nvim' },
+    config = function()
+      require('mason-lspconfig').setup({
+        -- CRITICAL: Prevent mason-lspconfig from automatically starting up
+        -- a conflicting instance of rust-analyzer
+        automatic_enable = {
+          exclude = { 'rust_analyzer' },
+        },
+      })
+    end,
+  },
+  {
+    'mrcjkb/rustaceanvim',
+    version = '^5',
+    lazy = false,
+    config = function()
+      vim.g.rustaceanvim = {
+        server = {
+          on_attach = function(_, bufnr)
+            local opts = { buffer = bufnr, silent = true }
+            vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
+            vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
+          end,
+        },
+      }
     end,
   },
 }
