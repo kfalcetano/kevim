@@ -91,12 +91,6 @@ return {
     config = function()
       vim.g.rustaceanvim = {
         server = {
-          -- Override root directory detection for monorepos
-          root_dir = function(filename)
-            local util = require('lspconfig.util')
-            -- Prioritize Cargo.toml to prevent jumping out to the parent directory
-            return util.root_pattern('Cargo.toml')(filename) or util.root_pattern('.git')(filename)
-          end,
           on_attach = function(_, bufnr)
             local opts = { buffer = bufnr, silent = true }
             vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
