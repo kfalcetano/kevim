@@ -77,6 +77,13 @@ return {
       desc = 'Notification History',
     },
     {
+      '<leader>vn',
+      function()
+        Snacks.notifier.show_history()
+      end,
+      desc = 'Notification History',
+    },
+    {
       '<leader>fp',
       function()
         Snacks.picker()
