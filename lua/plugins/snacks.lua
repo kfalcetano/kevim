@@ -16,6 +16,9 @@ return {
     explorer = { enabled = true },
     picker = { enabled = true },
     rename = { enabled = true },
+    image = {
+      enabled = true,
+    },
   },
   keys = {
     {
